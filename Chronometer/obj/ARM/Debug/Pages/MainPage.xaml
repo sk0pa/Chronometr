@@ -1,0 +1,56 @@
+﻿<Page
+    x:Class="Chronometer.Pages.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Chronometer"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Pivot
+        RequestedTheme="Light">
+        <Pivot.Background>
+            <ImageBrush
+                Stretch="Fill"
+                ImageSource="ms-appx:///Assets/bg.png" />
+        </Pivot.Background>
+        <PivotItem
+            Header="Activities">
+            <Grid>
+                <!--<Grid.RowDefinitions>
+                    <RowDefinition
+                        Height="*" />
+                    <RowDefinition
+                        Height="9*" />
+                </Grid.RowDefinitions>-->
+
+                <GridView x:ConnectionId='1'
+                    Name="CategoriesGrid"
+                    ItemTemplate="{StaticResource CategoryItem}"
+                    IsItemClickEnabled="True"
+                                                  
+                    ItemsSource="{Binding Categories}"
+                    DataContext="{StaticResource cvm}"
+                                                    >
+                    <GridView.Background>
+                        <SolidColorBrush
+                            Color="Gray"
+                            Opacity="0" />
+                    </GridView.Background>
+                </GridView>
+            </Grid>
+        </PivotItem>
+        <PivotItem
+            Header="Stats">
+            <Grid>
+                <ItemsControl
+                    DataContext="{StaticResource avm}"
+                    ItemsSource="{Binding Activities}"
+                    ItemTemplate="{StaticResource ActivityItem}"
+                    Background="{x:Null}" />
+            </Grid>
+        </PivotItem>
+    </Pivot>
+</Page>
+

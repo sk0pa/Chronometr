@@ -1,0 +1,53 @@
+﻿<Page
+    x:Class="Chronometer.Pages.AddActivity"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Chronometer.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.Background>
+            <ImageBrush
+                Stretch="Fill"
+                ImageSource="ms-appx:///Assets/bg.png" />
+        </Grid.Background>
+        <Grid
+            Margin="10">
+            <StackPanel>
+                <TextBox
+                    Header="Название активности"
+                    Name="NameTextBox"
+                    RequestedTheme="Light" />
+                <Rectangle
+                    HorizontalAlignment="Stretch"
+                    Height="150"
+                    Stroke="#FFAAAAAA">
+                    <Rectangle.Fill>
+                        <SolidColorBrush
+                            Color="{Binding Color}" />
+                    </Rectangle.Fill>
+                </Rectangle>
+                <Slider
+                    Value="{Binding R, Mode=TwoWay}"
+                    Maximum="255"
+                    RequestedTheme="Light" />
+                <Slider
+                    Value="{Binding G, Mode=TwoWay}"
+                    Maximum="255"
+                    RequestedTheme="Light" />
+                <Slider
+                    Value="{Binding B, Mode=TwoWay}"
+                    Maximum="255"
+                    RequestedTheme="Light" />
+                <Button
+                    Content="Добавить"
+                    RequestedTheme="Light"
+                    HorizontalAlignment="Right"
+                    Click="Button_Click" />
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Page>

@@ -1,0 +1,1 @@
+C:\Users\Skopa\Desktop\Chronometer\Chronometer\Chronometer.csproj;arm

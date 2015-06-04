@@ -1,0 +1,70 @@
+﻿<Application x:Class="Chronometer.App" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:local="using:Chronometer">
+  <Application.Resources>
+        <local:CategoriesViewModel
+            x:Key="cvm" />
+        <local:ActivitiesViewModel
+            x:Key="avm" />
+      
+        <DataTemplate
+            x:Key="CategoryItem">
+            <Grid
+                Width="90"
+                Height="90">
+                <Ellipse
+                    StrokeThickness="3"
+                    Margin="5"
+                    Stroke="Gray">
+                    <Ellipse.Fill>
+                        <SolidColorBrush
+                            Color="{Binding Color}" />
+                    </Ellipse.Fill>
+                </Ellipse>
+                <StackPanel
+                    Margin="0,0,0,10"
+                    VerticalAlignment="Center">
+                    <TextBlock
+                        Text="{Binding Icon}"
+                        FontSize="30"
+                        FontWeight="Bold"
+                        Foreground="White"
+                        HorizontalAlignment="Center"
+                        FontFamily="Segoe UI Symbol" />
+                    <TextBlock
+                        Text="{Binding Name}"
+                        FontSize="12"
+                        Foreground="White"
+                        HorizontalAlignment="Center" />
+                </StackPanel>
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate
+            x:Key="ActivityItem">
+            <StackPanel
+                Margin="0,0,0,8"
+                Width="360"
+                Height="48">
+                <TextBlock 
+                    Text="{Binding Name}"
+                    FontSize="16"/>
+                <Line
+                    X1="0"
+                    Y1="0"
+                    X2="{Binding X2}"
+                    Y2="0"
+                    StrokeStartLineCap="Round"
+                    StrokeEndLineCap="Round"
+                    StrokeThickness="16"
+                    Margin="8">
+                    <Line.Stroke>
+                        <SolidColorBrush
+                            Color="{Binding Color}" />
+                    </Line.Stroke>
+                </Line>
+            </StackPanel>
+        </DataTemplate>
+      
+        <vm:ViewModelLocator x:Key="Locator" xmlns:vm="using:Chronometer.ViewModel" />
+  </Application.Resources>
+</Application>
+
