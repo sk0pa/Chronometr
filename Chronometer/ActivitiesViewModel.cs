@@ -28,7 +28,7 @@ namespace Chronometer
             const int maxWidth = 320;
             activities.Clear();
             Dictionary<int, double> stat = new Dictionary<int, double>();
-            double totalSeconds = 0;
+            double maxSeconds = 0;
             foreach (var i in Data.Activities)
             {
                 if (!stat.ContainsKey(i.CategoryId))
@@ -37,14 +37,15 @@ namespace Chronometer
                 }
 
                 var seconds = (i.Ended - i.Started).TotalSeconds;
-                totalSeconds += seconds;
                 stat[i.CategoryId] += seconds;
             }
+
+            maxSeconds = stat.Values.Max();
 
             foreach (var i in stat.Keys)
             {
                 var category = Data.Categories.Where(j => j.Id == i).First();
-                var t = new ActivityForBinding() { Name = category.Name, X2 = (int)(stat[i] / totalSeconds * maxWidth), Color = category.Color };
+                var t = new ActivityForBinding() { Name = category.Name, X2 = (int)(stat[i] / maxSeconds * maxWidth), Color = category.Color, TotalSeconds = stat[i] };
                 activities.Add(t);
             }
         }

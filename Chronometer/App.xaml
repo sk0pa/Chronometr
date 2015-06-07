@@ -43,10 +43,20 @@
             <StackPanel
                 Margin="0,0,0,8"
                 Width="360"
-                Height="48">
+                Height="56">
                 <TextBlock 
                     Text="{Binding Name}"
                     FontSize="16"/>
+                <StackPanel
+                    Orientation="Horizontal">
+                    <TextBlock
+                        Text="Total: "
+                        FontSize="12" />
+                    <TextBlock
+                        Margin="10 0"
+                        Text="{Binding TotalTime}"
+                        FontSize="12" />
+                </StackPanel>
                 <Line
                     X1="0"
                     Y1="0"

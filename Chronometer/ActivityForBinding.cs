@@ -14,6 +14,16 @@ namespace Chronometer
 
         public Color Color { get; set; }
 
+        public double TotalSeconds { get; set; }
+
+        public string TotalTime 
+        {
+            get
+            {
+                return TimeSpan.FromSeconds(TotalSeconds).ToString(@"dd\.hh\:mm\:ss");
+            }
+        }
+
         public double X2 { get; set; }
     }
 }
